@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Reto_condicional_4"/>
+        <attribute name="authors" value="Jaider"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-11-15 04:07:10 p.&#160;m."/>
+        <attribute name="created" value="SmFpZGVyO0RFU0tUT1AtR0NVOEJKRzsyMDI1LTExLTE1OzExOjQ5OjEyIGEuwqBtLjszMjQ0"/>
+        <attribute name="edited" value="SmFpZGVyO0RFU0tUT1AtR0NVOEJKRzsyMDI1LTExLTE1OzA0OjA3OjEwIHAuwqBtLjsxOzMzNjE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="declare variables or constants"/>
+            <declare name="num1" type="Real" array="False" size=""/>
+            <declare name="num2" type="Real" array="False" size=""/>
+            <declare name="res" type="Real" array="False" size=""/>
+            <declare name="opt" type="Integer" array="False" size=""/>
+            <comment text="Initilize variables or constants"/>
+            <assign variable="num1" expression="0"/>
+            <assign variable="num2" expression="0"/>
+            <comment text="Get number 1"/>
+            <output expression="&quot;Enter value to number 1&quot;" newline="True"/>
+            <input variable="num1"/>
+            <comment text="Get number 2"/>
+            <output expression="&quot;Enter value to number 2&quot;" newline="True"/>
+            <input variable="num2"/>
+            <output expression="&quot;Math manu:[1].Add- [2].Subs - [3].Mult -[4].Div -[5].All&quot;" newline="True"/>
+            <output expression="&quot;Press any option[1 - 5]&quot;" newline="True"/>
+            <input variable="opt"/>
+            <if expression="opt = 1">
+                <then>
+                    <assign variable="res" expression="num1 + num2"/>
+                    <output expression="&quot;Addition:&quot; &amp; res" newline="True"/>
+                </then>
+                <else>
+                    <if expression="opt = 2">
+                        <then>
+                            <assign variable="res" expression="num1 - num2"/>
+                            <output expression="&quot;Substration:&quot; &amp; res" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="opt = 3">
+                                <then>
+                                    <assign variable="res" expression="num1 * num2"/>
+                                    <output expression="&quot;Multiplication:&quot; &amp; res" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="opt = 4">
+                                        <then>
+                                            <if expression="num2 &gt; 0">
+                                                <then>
+                                                    <assign variable="res" expression="num1 / num2"/>
+                                                    <output expression="&quot;division:&quot; &amp; res" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="&quot;It is not possible to divide by zero&quot;" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="opt = 5">
+                                                <then>
+                                                    <output expression="&quot;Add:&quot; &amp; num1 + num2" newline="True"/>
+                                                    <output expression="&quot;Subs:&quot; &amp; num1 - num2" newline="True"/>
+                                                    <output expression="&quot;Mult:&quot; &amp; num1 * num2" newline="True"/>
+                                                    <if expression="num2 &gt; 0">
+                                                        <then>
+                                                            <output expression="&quot;Div:&quot; &amp; num1 / num2" newline="True"/>
+                                                        </then>
+                                                        <else>
+                                                            <output expression="&quot;It is not possible to divide by zero&quot;" newline="True"/>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <output expression="&quot;Invalid option&quot;" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
