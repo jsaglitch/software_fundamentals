@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+<attributes>
+<attribute name="name" value="CalculoSalarioIncrementoRobustezOR"/>
+<attribute name="authors" value="Sebas"/>
+<attribute name="about" value="Reto 4: Usa OR lógico para aceptar entradas en mayúscula o minúscula."/>
+<attribute name="saved" value="2025-11-15 17:15:00 PM"/>
+</attributes>
+<function name="Main" type="None" variable="">
+<parameters/>
+<body>
+<!-- Declaración de Variables -->
+<declare name="salarioActual, salarioFinal, aumentoMonto" type="Real" array="False" size=""/>
+<declare name="tipoID, nombres, apellidos, genero, direccion, telefono" type="String" array="False" size=""/>
+<declare name="anioNacimiento" type="Integer" array="False" size=""/>
+<declare name="porcentajeAumento" type="Real" array="False" size=""/>
+        <!-- 1. Solicitar Datos (Inputs) -->
+        <output expression="&quot;=== INGRESO DE DATOS PERSONALES ===&quot;" newline="True"/>
+        <output expression="&quot;Tipo de identificación (CC, PS, CE, CI):&quot;" newline="True"/>
+        <input variable="tipoID"/>
+        <output expression="&quot;Nombres:&quot;" newline="True"/>
+        <input variable="nombres"/>
+        <output expression="&quot;Apellidos:&quot;" newline="True"/>
+        <input variable="apellidos"/>
+        <output expression="&quot;Género (M/F):&quot;" newline="True"/>
+        <input variable="genero"/>
+        <output expression="&quot;Año de nacimiento:&quot;" newline="True"/>
+        <input variable="anioNacimiento"/>
+        <output expression="&quot;Dirección:&quot;" newline="True"/>
+        <input variable="direccion"/>
+        <output expression="&quot;Teléfono:&quot;" newline="True"/>
+        <input variable="telefono"/>
+        <output expression="&quot;Salario actual:&quot;" newline="True"/>
+        <input variable="salarioActual"/>
+
+        <!-- Inicializar aumento. No se usa ninguna función de conversión. -->
+        <assign variable="porcentajeAumento" expression="0.0"/>
+
+        <!-- 2. LÓGICA CONDICIONAL ENCADENADA -->
+
+        <!-- RANGO 1: Salario <= 1200000 -->
+        <if expression="salarioActual &lt;= 1200000">
+            <then>
+                <!-- Condicional ANIDADO por género F: Acepta "F" o "f" -->
+                <if expression="genero == &quot;F&quot; OR genero == &quot;f&quot;">
+                    <then>
+                        <assign variable="porcentajeAumento" expression="0.10"/>
+                    </then>
+                    <else>
+                        <!-- Condicional ANIDADO por género M: Acepta "M" o "m" -->
+                        <if expression="genero == &quot;M&quot; OR genero == &quot;m&quot;">
+                            <then>
+                                <assign variable="porcentajeAumento" expression="0.08"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;AVISO: Género no válido (Debe ser F, f, M o m). No hay aumento en Rango 1.&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </then>
+            <else>
+                <!-- RANGO 2: Salario > 1200000 AND < 2000000 -->
+                <if expression="salarioActual &lt; 2000000">
+                    <then>
+                        <!-- 5% sin importar el género -->
+                        <assign variable="porcentajeAumento" expression="0.05"/>
+                    </then>
+                    <else>
+                        <!-- RANGO 3: Salario >= 2000000 -->
+                        <if expression="salarioActual &gt;= 2000000">
+                            <then>
+                                <!-- Condicional ANIDADO por género F: Acepta "F" o "f" -->
+                                <if expression="genero == &quot;F&quot; OR genero == &quot;f&quot;">
+                                    <then>
+                                        <assign variable="porcentajeAumento" expression="0.03"/>
+                                    </then>
+                                    <else>
+                                        <!-- Condicional ANIDADO por género M: Acepta "M" o "m" -->
+                                        <if expression="genero == &quot;M&quot; OR genero == &quot;m&quot;">
+                                            <then>
+                                                <assign variable="porcentajeAumento" expression="0.025"/>
+                                            </then>
+                                            <else>
+                                                <output expression="&quot;AVISO: Género no válido (Debe ser F, f, M o m). No hay aumento en Rango 3.&quot;" newline="True"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <!-- Inalcanzable -->
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </else>
+        </if>
+
+        <!-- 3. Cálculo Final -->
+        <assign variable="aumentoMonto" expression="salarioActual * porcentajeAumento"/>
+        <assign variable="salarioFinal" expression="salarioActual + aumentoMonto"/>
+
+        <!-- 4. Presentación de Resultados -->
+        <output expression="&quot;\n=== RESULTADO FINAL ===&quot;" newline="True"/>
+        <output expression="&quot;Empleado: &quot; &amp; nombres &amp; &quot; &quot; &amp; apellidos" newline="True"/>
+        <output expression="&quot;Salario Base: &quot; &amp; salarioActual" newline="True"/>
+        <output expression="&quot;Porcentaje de Incremento: &quot; &amp; (porcentajeAumento * 100) &amp; &quot;%&quot;" newline="True"/>
+        <output expression="&quot;Monto del Aumento: &quot; &amp; aumentoMonto" newline="True"/>
+        <output expression="&quot;SALARIO FINAL: &quot; &amp; salarioFinal" newline="True"/>
+    </body>
+</function>
+</flowgorithm>
