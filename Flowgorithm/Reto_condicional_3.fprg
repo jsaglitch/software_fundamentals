@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="ClasificadorCompleto"/>
+        <attribute name="authors" value="sebas"/>
+        <attribute name="about" value="Reto condicional 3: Clasifica un n&#250;mero en Par/Impar y Positivo/Negativo."/>
+        <attribute name="saved" value="2025-11-15 04:49:54 p.&#160;m."/>
+        <attribute name="created" value="VVNVQVJJTztERVNLVE9QLUo5SVVKQzc7MjAyNS0xMS0xNTswNDo0NDo0MSBwLsKgbS47MzIxNA=="/>
+        <attribute name="edited" value="VVNVQVJJTztERVNLVE9QLUo5SVVKQzc7MjAyNS0xMS0xNTswNDo0OTo1NCBwLsKgbS47MTszMzMx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="numero" type="Integer" array="False" size=""/>
+            <output expression="&quot;=== CLASIFICADOR COMPLETO DE N&#218;MEROS ===&quot;" newline="True"/>
+            <output expression="&quot;Por favor, ingresa un n&#250;mero entero (positivo o negativo):&quot;" newline="True"/>
+            <input variable="numero"/>
+            <if expression="numero == 0">
+                <then>
+                    <output expression="&quot;El n&#250;mero &quot; &amp; numero &amp; &quot; es CERO (Par), pero no es Positivo ni Negativo.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="numero &gt; 0">
+                        <then>
+                            <if expression="numero % 2 == 0">
+                                <then>
+                                    <output expression="&quot;&#161;Clasificaci&#243;n: PAR POSITIVO!&quot;" newline="True"/>
+                                    <output expression="&quot;Detalle: Mayor que cero y divisible por 2.&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;&#161;Clasificaci&#243;n: IMPAR POSITIVO!&quot;" newline="True"/>
+                                    <output expression="&quot;Detalle: Mayor que cero, con residuo al dividir por 2.&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="Abs(numero)% 2 == 0">
+                                <then>
+                                    <output expression="&quot;&#161;Clasificaci&#243;n: PAR NEGATIVO!&quot;" newline="True"/>
+                                    <output expression="&quot;Detalle: Menor que cero y divisible por 2.&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;&#161;Clasificaci&#243;n: IMPAR NEGATIVO!&quot;" newline="True"/>
+                                    <output expression="&quot;Detalle: Menor que cero, y no es divisible por 2.&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
