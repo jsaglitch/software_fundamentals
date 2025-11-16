@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+<attributes>
+<attribute name="name" value="SimularLanzamientoDeDados"/>
+<attribute name="authors" value="Sebas"/>
+<attribute name="about" value="Reto condicional 1: Simula dos dados, verifica igualdad y si son divisibles por 2 (PAR/IMPAR)."/>
+<attribute name="saved" value="2025-11-15 16:20:00 PM"/>
+</attributes>
+<function name="Main" type="None" variable="">
+<parameters/>
+<body>
+<!-- Declaración de Variables -->
+<declare name="Dado1, Dado2" type="Integer" array="False" size=""/>
+<declare name="Clasificacion1, Clasificacion2" type="String" array="False" size=""/>
+
+<!-- Mensaje de inicio -->
+        <output expression="&quot;=== Simulador de Dados (Reto Condicional 1) ===&quot;" newline="True"/>
+
+        <!-- 1. Generar Valores Aleatorios (Random(6) + 1 para obtener 1-6) -->
+        <assign variable="Dado1" expression="Random(6) + 1"/>
+        <assign variable="Dado2" expression="Random(6) + 1"/>
+
+        <!-- 2. Mostrar Resultados -->
+        <output expression="&quot;Dado 1 generó: &quot; &amp; Dado1" newline="True"/>
+        <output expression="&quot;Dado 2 generó: &quot; &amp; Dado2" newline="True"/>
+        <output expression="&quot;----------------------------------&quot;" newline="True"/>
+
+        <!-- 3. Decidir si el Dado 1 es PAR (Se divide por 2 sin residuo) -->
+        <if expression="Dado1 % 2 == 0">
+            <then>
+                <assign variable="Clasificacion1" expression="&quot;PAR&quot;"/>
+                <output expression="&quot;El número &quot; &amp; Dado1 &amp; &quot; es PAR. ¡Se puede dividir por 2 sin que sobre nada!&quot;" newline="True"/>
+            </then>
+            <else>
+                <assign variable="Clasificacion1" expression="&quot;IMPAR&quot;"/>
+                <output expression="&quot;El número &quot; &amp; Dado1 &amp; &quot; es IMPAR. ¡Al dividirlo por 2, sobra 1!&quot;" newline="True"/>
+            </else>
+        </if>
+
+        <!-- 4. Decidir si el Dado 2 es PAR (Se divide por 2 sin residuo) -->
+        <if expression="Dado2 % 2 == 0">
+            <then>
+                <assign variable="Clasificacion2" expression="&quot;PAR&quot;"/>
+                <output expression="&quot;El número &quot; &amp; Dado2 &amp; &quot; es PAR. ¡Se puede dividir por 2 sin que sobre nada!&quot;" newline="True"/>
+            </then>
+            <else>
+                <assign variable="Clasificacion2" expression="&quot;IMPAR&quot;"/>
+                <output expression="&quot;El número &quot; &amp; Dado2 &amp; &quot; es IMPAR. ¡Al dividirlo por 2, sobra 1!&quot;" newline="True"/>
+            </else>
+        </if>
+
+        <!-- 5. Condicional del Juego (YOU WIN / GAME OVER) -->
+        <output expression="&quot;----------------------------------&quot;" newline="True"/>
+        <if expression="Dado1 == Dado2">
+            <then>
+                <output expression="&quot; YOU WIN! &quot;" newline="True"/>
+                <output expression="&quot;¡El valor de los dados es EXACTAMENTE el mismo!&quot;" newline="True"/>
+            </then>
+            <else>
+                <output expression="&quot; GAME OVER &quot;" newline="True"/>
+                <output expression="&quot;Los dados han caído en valores diferentes.&quot;" newline="True"/>
+            </else>
+        </if>
+    </body>
+</function>
+
+</flowgorithm>
