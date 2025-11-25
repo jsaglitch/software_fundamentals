@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="DosDadosParSeis"/>
+        <attribute name="authors" value="Usuario"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-24"/>
+        <attribute name="created" value="2024-11-24"/>
+        <attribute name="edited" value="2024-11-24"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="dado1, dado2, lanzamientos" type="Integer" array="False" size=""/>
+            <assign variable="lanzamientos" expression="0"/>
+            <assign variable="dado1" expression="0"/>
+            <assign variable="dado2" expression="0"/>
+            <while expression="dado1 != 6 or dado2 != 6">
+                <assign variable="dado1" expression="random(6)+1"/>
+                <assign variable="dado2" expression="random(6)+1"/>
+                <assign variable="lanzamientos" expression="lanzamientos + 1"/>
+                <output expression="&quot;Lanzamiento &quot; &amp; lanzamientos &amp; &quot; - Dado 1: &quot; &amp; dado1 &amp; &quot; | Dado 2: &quot; &amp; dado2" newline="True"/>
+            </while>
+            <output expression="&quot;¡PAR DE SEIS! Se necesitaron &quot; &amp; lanzamientos &amp; &quot; lanzamientos&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

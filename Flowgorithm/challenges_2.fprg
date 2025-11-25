@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="LanzamientosDado"/>
+        <attribute name="authors" value="Jaider"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-11-24"/>
+        <attribute name="created" value="2025-11-24"/>
+        <attribute name="edited" value="2025-11-24"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="veces, dado, suma, i" type="Integer" array="False" size=""/>
+            <assign variable="suma" expression="0"/>
+            <output expression="&quot;¿Cuántas veces quieres lanzar el dado?&quot;" newline="True"/>
+            <input variable="veces"/>
+            <assign variable="i" expression="1"/>
+            <while expression="i &lt;= veces">
+                <assign variable="dado" expression="random(6)+1"/>
+                <output expression="&quot;Lanzamiento &quot; &amp; i &amp; &quot;: &quot; &amp; dado" newline="True"/>
+                <assign variable="suma" expression="suma + dado"/>
+                <assign variable="i" expression="i + 1"/>
+            </while>
+            <output expression="&quot;Suma total de todos los lanzamientos: &quot; &amp; suma" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

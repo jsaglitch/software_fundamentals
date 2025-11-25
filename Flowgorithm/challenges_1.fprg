@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="DadoParImpar"/>
+        <attribute name="authors" value="Jaider"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-11-23 8:50:07 PM"/>
+        <attribute name="created" value="2025-11-23 12:00:00 PM"/>
+        <attribute name="edited" value="2025-11-23 12:00:00 PM"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="dado" type="Integer" array="False" size=""/>
+            <comment text="Lanzar el dado"/>
+            <assign variable="dado" expression="random(6)+1"/>
+            <output expression="&quot;El dado muestra: &quot; &amp; dado" newline="True"/>
+            <comment text="Verificar si es par o impar"/>
+            <if expression="dado%2==0">
+                <then>
+                    <output expression="&quot;El n&#250;mero es PAR&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;El n&#250;mero es IMPAR&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
